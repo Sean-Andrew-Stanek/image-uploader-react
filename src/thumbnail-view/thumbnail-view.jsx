@@ -1,8 +1,10 @@
 import React from "react";
 
-export const ThumbnailView = () => {
+export const ThumbnailView = ({imageList}) => {
     return (
         <>
+            
+
         </>
     )
 }
