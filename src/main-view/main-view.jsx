@@ -18,7 +18,7 @@ export const MainView = () => {
         .then((data) => {
             const imageFromAPI = data.Contents.map(item=>item.Key);
             const thumbnailList = imageFromAPI.filter(name => (
-                name.startsWith('original-images/') && name.endsWith('_resized.png')
+                name.endsWith('_resized.png')
             ));
             setImageList(thumbnailList);
         }).then(() => {
@@ -41,6 +41,8 @@ export const MainView = () => {
             element = {
                 <ThumbnailView 
                     imageList={imageList}
+                    isLoading={isLoading}
+                    API_URI={API_URI}
                 />
             }
         />;
