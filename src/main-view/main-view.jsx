@@ -16,12 +16,16 @@ export const MainView = () => {
         fetch(API_URI + '/images')
         .then((response)=> response.json())
         .then((data) => {
-            const imageFromAPI = data;
-            console.log(imageFromAPI);
+            const imageFromAPI = data.Contents.map(item=>item.Key);
+            const thumbnailList = imageFromAPI.filter(name => (
+                name.startsWith('original-images/') && name.endsWith('_resized.png')
+            ));
+            setImageList(thumbnailList);
+        }).then(() => {
+            setIsLoading(false);
         });
-
         
-    }, [imageList]);
+    }, []);
 
     //Links to 'pages'
     let navigationBar = 
