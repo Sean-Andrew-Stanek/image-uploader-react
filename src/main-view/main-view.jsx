@@ -29,10 +29,9 @@ export const MainView = () => {
 
     //Links to 'pages'
     let navigationBar = 
-        //<NavigationBar
-        <>
-        </>
-        ///>;
+        <NavigationBar
+            API_URI={API_URI}
+        />;
 
     //Display all thumbnails (default route)
     let routeToThumbnailView = 
